@@ -12,7 +12,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8.1"
+python = ">=3.9,<3.13"
 watchdog = { git = "https://github.com/dbarrous/watchdog.git" }
 boto3 = "1.28.4"
 slack_sdk = "3.19.5"
