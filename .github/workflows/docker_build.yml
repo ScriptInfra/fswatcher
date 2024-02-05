@@ -14,7 +14,9 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
-    - name: Install AWS CLI
+    - name: Login to AWS ECR
       run: |
-        aws --version
-        docker --version
+        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 351967858401.dkr.ecr.us-east-1.amazonaws.com
+        docker build -t sdc_aws_lambda_promtail .
+        docker tag sdc_aws_lambda_promtail:latest 351967858401.dkr.ecr.us-east-1.amazonaws.com/sdc_aws_lambda_promtail:latest
+        docker push 351967858401.dkr.ecr.us-east-1.amazonaws.com/sdc_aws_lambda_promtail:latest
