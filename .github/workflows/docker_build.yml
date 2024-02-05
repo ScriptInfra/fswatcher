@@ -16,6 +16,12 @@ jobs:
 
     - name: Install AWS CLI
       run: |
-        pip install awscliv2
-        awsv2 --version
-    
+        aws --version
+
+    - name: Login to Amazon ECR
+      run: |
+        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 351967858401.dkr.ecr.us-east-1.amazonaws.com
+
+    - name: Build and Push Docker Image
+      run: |
+        docker --version
