@@ -17,3 +17,4 @@ jobs:
     - name: Install AWS CLI
       run: |
         python3 -m pip install awscliv2
+        python3 -m awsv2 --version
