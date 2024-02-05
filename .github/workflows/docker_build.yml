@@ -16,7 +16,7 @@ jobs:
 
     - name: Login to AWS ECR
       run: |
-        aws ecr get-login-password --region us-east-1 | podman login --username AWS --password-stdin 351967858401.dkr.ecr.us-east-1.amazonaws.com
+        # aws ecr get-login-password --region us-east-1 | podman login --username AWS --password-stdin 351967858401.dkr.ecr.us-east-1.amazonaws.com
         podman build -t sdc_aws_lambda_promtail .
         podman tag sdc_aws_lambda_promtail:latest 351967858401.dkr.ecr.us-east-1.amazonaws.com/sdc_aws_lambda_promtail:latest
         podman push 351967858401.dkr.ecr.us-east-1.amazonaws.com/sdc_aws_lambda_promtail:latest
