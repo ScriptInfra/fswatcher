@@ -11,12 +11,10 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-
     - name: Login to AWS ECR
       run: |
         # aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 351967858401.dkr.ecr.us-east-1.amazonaws.com
+        git clone https://github.com/HERMES-SOC/fswatcher
         docker build -t sdc_aws_lambda_promtail .
         mount --make-rshared /
         docker tag sdc_aws_lambda_promtail:latest 351967858401.dkr.ecr.us-east-1.amazonaws.com/sdc_aws_lambda_promtail:latest
