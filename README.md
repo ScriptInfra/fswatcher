@@ -79,7 +79,8 @@ IMAGE_NAME=fswatcher
 # ========================
 # AWS configurations
 # ========================
-# S3 bucket name (Note:Support directories as well s3-bucket-name/directory)
+# S3 bucket name (Note: Directories are supported. Use the following syntax: s3-bucket-name/directory)
+# If the directory does not already exist in S3, the directory structure will be created when the file is synced
 S3_BUCKET_NAME=s3_bucket_name
 
 # AWS region (Used for Timestream Database)
@@ -119,7 +120,7 @@ USE_FALLBACK=true
 # Logging configurations
 # ========================
 # File Logging (If you'd like to store a log file within the container)
-# FILE_LOGGING=false
+# FILE_LOGGING=true
 
 # Log Directory (If you'd like to persist the log to your host system)
 LOG_DIR=$(cd .. && pwd)
