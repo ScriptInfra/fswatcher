@@ -202,11 +202,11 @@ USE_FALLBACK=true
 
     ```aws s3 ls s3://S3_BUCKET_NAME/```
 
-3. Verify the file was tagged with the creation and modified time
+3. Verify the file was tagged with the creation and modified time:
 
     ```aws s3api head-object --bucket SDC_AWS_S3_BUCKET --key test.txt```
 
-4. Verify the file was logged to the `SDC_AWS_TIMESTREAM_TABLE` table (optional)
+4. Verify the file was logged to the `SDC_AWS_TIMESTREAM_TABLE` table (optional):
 
     ```aws timestream-query query --query-string "SELECT * FROM SDC_AWS_TIMESTREAM_DB.SDC_AWS_TIMESTREAM_TABLE"```
 
@@ -214,8 +214,8 @@ USE_FALLBACK=true
 There are two ways to view the logs of the filewatcher system. You can view the logs in the directory within the container which contains the script within the `fswatcher.log` file (If you have set file logging on). Also if you choose to persist it to your host directory you can view it wherever you define in the config file.
 
 Or if you'd like to see the logs of the docker container you can also run:
-    
-    docker logs <name-of-fswatcher-container> 
+
+    docker logs <name-of-fswatcher-container>
 
 ## Uninstall
 Script:
